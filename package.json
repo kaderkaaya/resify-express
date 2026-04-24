@@ -12,7 +12,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "release": "release-it"
   },
   "jest": {
     "testEnvironment": "node",
@@ -29,9 +30,10 @@
   },
   "devDependencies": {
     "jest": "^30.3.0",
+    "release-it": "^20.0.1",
     "supertest": "^7.2.2"
   },
-    "publishConfig": {
-      "access": "public"
-    }
+  "publishConfig": {
+    "access": "public"
+  }
 }
