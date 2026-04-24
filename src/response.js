@@ -1,4 +1,9 @@
-const successResponse = (res, data = null, message = "Success", status = 200) => {
+const successResponse = (
+  res,
+  data = null,
+  message = "Success",
+  status = 200,
+) => {
   return res.status(status).json({
     success: true,
     message,
@@ -7,12 +12,19 @@ const successResponse = (res, data = null, message = "Success", status = 200) =>
   });
 };
 
-const errorResponse = (res, data = null, message = "Error", status = 500, error = null) => {
+const errorResponse = (
+  res,
+  message = "Error",
+  status = 500,
+  code = null,
+  description = null,
+  error = null,
+) => {
   return res.status(status).json({
     success: false,
     message,
-    data,
-    error,
+    data: null,
+    error: error || { description, code },
   });
 };
 
