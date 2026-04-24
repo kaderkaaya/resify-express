@@ -1,12 +1,16 @@
 const { successResponse, errorResponse } = require("./response");
 
 const attachHelpers = (_, res, next) => {
-  res.success = (data, message, status) => {
+  res.success = (data, message = "Success", status = 200) => {
     return successResponse(res, data, message, status);
   };
 
-  res.error = (data, message, status, error) => {
-    return errorResponse(res, data, message, status, error);
+  res.error = (
+    { code = null, description = null, error = null } = {},
+    status = 500,
+    message = "Error",
+  ) => {
+    return errorResponse(res, message, status, { code, description, error });
   };
 
   next();

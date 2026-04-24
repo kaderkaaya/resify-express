@@ -8,7 +8,6 @@ const successResponse = (
     success: true,
     message,
     data,
-    error: null,
   });
 };
 
@@ -16,14 +15,11 @@ const errorResponse = (
   res,
   message = "Error",
   status = 500,
-  code = null,
-  description = null,
-  error = null,
+  { code = null, description = null, error = null } = {},
 ) => {
   return res.status(status).json({
     success: false,
     message,
-    data: null,
     error: error || { description, code },
   });
 };
